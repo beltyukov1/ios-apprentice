@@ -132,6 +132,12 @@
                         </variation>
                     </view>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="roundLabel" destination="20f-FB-Pce" id="GaF-aA-Ies"/>
+                        <outlet property="scoreLabel" destination="lu6-PJ-htd" id="urc-20-Wwb"/>
+                        <outlet property="slider" destination="5BD-vu-wJs" id="Gos-6E-bJN"/>
+                        <outlet property="targetValueLabel" destination="c1o-yJ-Zrs" id="Vaf-BZ-oiQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
