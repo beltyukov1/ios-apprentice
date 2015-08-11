@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        startNewRound()
+        startNewGame()
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,23 +23,20 @@ class ViewController: UIViewController {
     }
     
     @IBAction func showAlert() {
-        let difference = abs(targetValue - currentValue)
-        let roundScore = 100 - difference
+        let roundScore = determineRoundScore()
         let message = "Target value: \(targetValue)"
             + "\nYour guess: \(currentValue)"
             + "\nScore: \(roundScore)"
         
-        let alert = UIAlertController(title: "Hello, World!", message: message, preferredStyle: .Alert)
-        
-        let action = UIAlertAction(title: "OK", style: .Default, handler: nil)
+        let alert = UIAlertController(title: getAlertHeader(roundScore), message: message, preferredStyle: .Alert)
+
+        let action = UIAlertAction(title: "OK", style: .Default, handler: { action in self.startNewRound() })
         
         alert.addAction(action)
         
         presentViewController(alert, animated: true, completion: nil)
         
         scoreValue += roundScore
-        
-        startNewRound()
     }
     
     @IBAction func sliderMoved(sender: UISlider) {
@@ -55,9 +52,41 @@ class ViewController: UIViewController {
         updateLabels()
     }
     
+    @IBAction func startNewGame() {
+        roundValue = 0
+        scoreValue = 0
+        
+        startNewRound()
+    }
+    
     private func updateLabels() {
         targetValueLabel.text = "\(targetValue)"
         roundLabel.text = "\(roundValue)"
         scoreLabel.text = "\(scoreValue)"
+    }
+    
+    private func getAlertHeader(roundScore: Int) -> String {
+        let title: String
+        
+        switch roundScore {
+        case 100:
+            title = "Perfect!"
+        case let x where x > 90:
+            title = "Almost!"
+        default:
+            title = "Not even close!"
+        }
+        
+        return title
+    }
+    
+    private func determineRoundScore() -> Int {
+        let difference = abs(targetValue - currentValue)
+        var roundScore = 100 - difference
+        if roundScore == 100 {
+            roundScore += 100
+        }
+        
+        return roundScore
     }
 }
