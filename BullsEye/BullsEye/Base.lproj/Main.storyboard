@@ -94,6 +94,9 @@
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="NH5-xo-S64" kind="presentation" modalTransitionStyle="flipHorizontal" id="NZH-nj-rhi"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -144,6 +147,61 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--About View Controller-->
+        <scene sceneID="Kcz-sA-IdW">
+            <objects>
+                <viewController id="NH5-xo-S64" customClass="AboutViewController" customModule="BullsEye" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9YS-hd-wS1"/>
+                        <viewControllerLayoutGuide type="bottom" id="7Oh-mT-irP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KGM-TX-hOk">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gsb-8m-LIt">
+                                <rect key="frame" x="280" y="550" width="40" height="30"/>
+                                <state key="normal" title="Close">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="close" destination="NH5-xo-S64" eventType="touchUpInside" id="Hu4-3G-shF"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8GR-Bi-wnV">
+                                <rect key="frame" x="16" y="28" width="568" height="264"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="264" id="Ku4-Ly-7gM"/>
+                                    <constraint firstAttribute="height" constant="264" id="VOI-jS-O27"/>
+                                    <constraint firstAttribute="height" constant="264" id="rqu-xe-Xna"/>
+                                </constraints>
+                                <string key="text">*** Bull’s Eye ***Welcome to the awesome game of Bull’s Eye where you can win points and fame by dragging a slider.Your goal is to place the slider as close as possible to the target value. The closer you are, the more points you score. Enjoy!</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Ku4-Ly-7gM"/>
+                                        <exclude reference="VOI-jS-O27"/>
+                                    </mask>
+                                </variation>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="gsb-8m-LIt" secondAttribute="bottom" constant="20" symbolic="YES" id="9Ug-lX-1KG"/>
+                            <constraint firstItem="8GR-Bi-wnV" firstAttribute="leading" secondItem="KGM-TX-hOk" secondAttribute="leadingMargin" id="G2s-hW-1wV"/>
+                            <constraint firstItem="8GR-Bi-wnV" firstAttribute="centerX" secondItem="gsb-8m-LIt" secondAttribute="centerX" id="Lf8-ZK-HX8"/>
+                            <constraint firstItem="8GR-Bi-wnV" firstAttribute="trailing" secondItem="KGM-TX-hOk" secondAttribute="trailingMargin" id="XRL-eE-ZX8"/>
+                            <constraint firstItem="8GR-Bi-wnV" firstAttribute="top" secondItem="9YS-hd-wS1" secondAttribute="bottom" constant="8" symbolic="YES" id="Y1w-A1-1Do"/>
+                        </constraints>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SKK-Gr-6zc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1300" y="387"/>
         </scene>
     </scenes>
 </document>
